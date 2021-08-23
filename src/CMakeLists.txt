@@ -1,0 +1,6 @@
+aux_source_directory(./ trt_crnn_src)
+add_library(${TRT_CRNN_LIBRARY_NAME} SHARED ${trt_crnn_src})
+set(TRT_LIBS nvinfer nvparsers nvonnxparser)
+target_link_libraries(${TRT_CRNN_LIBRARY_NAME} PRIVATE ${TRT_LIBS})
+target_link_libraries(${TRT_CRNN_LIBRARY_NAME} PRIVATE cudart)
+target_link_libraries(${TRT_CRNN_LIBRARY_NAME} PRIVATE ${OpenCV_LIBS})
